@@ -201,15 +201,16 @@ class TestAllMethods(unittest.TestCase):
 	# Test validate order
     def test_validate_order(self):
 		# case 1: test if a customer doesn't have enough money in their wallet to order
-
+        self.f2.validate_order(self.c1, self.s1,"Burger", 20)
 		# case 2: test if the stall doesn't have enough food left in stock
-
+        self.f2.validate_order(self.c1, self.s1,"Burger", 70)
 		# case 3: check if the cashier can order item from that stall
-        pass
+        self.f2.validate_order(self.c1, self.s1,"Churro", 20)
 
     # Test if a customer can add money to their wallet
     def test_reload_money(self):
-        pass
+        self.f2.reload_money(100)
+        self.assertEqual(self.f2.wallet, 250)
     
 ### Write main function
 def main():
